@@ -19,6 +19,6 @@ int main()
 {
     Child child;
 
-    cout << "x : " << child.x << "y : " << child.y;
+    cout << "x : " << child.x << "\ny : " << child.y;
     return 0;
 }
