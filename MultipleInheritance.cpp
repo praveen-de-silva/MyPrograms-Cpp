@@ -1,17 +1,17 @@
 #include <iostream>
 using namespace std;
 
-class Parent1 {
+class Parent1 { // Parent class 1
     public:
         int x=1; 
 };
 
-class Parent2 {
+class Parent2 { // Parent class 2
     public:
         int y=2;
 };
 
-class Child : public Parent1, public Parent2 {
+class Child : public Parent1, public Parent2 { // Child class
 
 };
 
