@@ -18,6 +18,10 @@ class Person : public UOM {
             id = aId;
             name = aName;
     }
+
+        void dispPersonDetails() {
+            cout << "ID : " << id << "\nName : " << name << endl;
+        }
 };
 
 class Student : public Person {
@@ -29,15 +33,17 @@ class Student : public Person {
             batchNo = aBatchNo;
         }
 
-        void dispDetails() {
-            cout << "ID : " << id << "\nName : " << name << "\nBatchNo : " << batchNo;
+        void dispStudDetails() {
+            dispPersonDetails();
+            cout << "BatchNo : " << batchNo << endl;
         }
 };
 
 int main() {
 
     Student st1 = Student("230123K", "Praveen", 23);
-    st1.dispDetails();
+
+    st1.dispStudDetails();
 
     return 0;
 }
