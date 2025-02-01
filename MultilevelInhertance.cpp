@@ -1,30 +1,43 @@
 #include <iostream>
+using namespace std;
 
-class Base {
-public:
-    void display() {
-        std::cout << "Base class display function" << std::endl;
+class UOM {
+    public: 
+        void spell() {
+            cout << "University of Moratuwa" << endl;
+        }
+};
+
+class Person : public UOM {
+    protected:
+        string id;
+        string name;
+ 
+    public:
+        Person(string aId, string aName) {
+            id = aId;
+            name = aName;
     }
 };
 
-class Derived1 : public Base {
-public:
-    void show() {
-        std::cout << "Derived1 class show function" << std::endl;
-    }
-};
+class Student : public Person {
+    private:
+        int batchNo;
 
-class Derived2 : public Derived1 {
-public:
-    void print() {
-        std::cout << "Derived2 class print function" << std::endl;
-    }
+    public:
+        Student(string aId, string aName, int aBatchNo) : Person(aId, aName) { // call the base class constructor
+            batchNo = aBatchNo;
+        }
+
+        void dispDetails() {
+            cout << "ID : " << id << "\nName : " << name << "\nBatchNo : " << batchNo;
+        }
 };
 
 int main() {
-    Derived2 obj;
-    obj.display();
-    obj.show();
-    obj.print();
+
+    Student st1 = Student("230123K", "Praveen", 23);
+    st1.dispDetails();
+
     return 0;
 }
