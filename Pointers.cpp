@@ -3,8 +3,8 @@ using namespace std;
 
 class Boarding {
     public:
-        int noMembers;
-        int fee;
+        int elecBill;
+        int waterBill;
 
         Boarding(int aNoMembers, int aFee) {
             noMembers = aNoMembers;
