@@ -10,7 +10,31 @@ void foo() {  // Fixed function declaration
     
 }
 
+void test2() {
+    int j = 20;
+    int *ptr1 = &j;
+    
+    cout << j << endl;
+    
+    *ptr1 = 30;
+    
+    cout << j << endl;
+}
+
+void test3() {
+    int j = 20;
+    int * ptr1 = &j;
+    int ** ptr2 = &ptr1;
+    int *** ptr3 = &ptr2;
+    
+    cout << j << endl;
+    
+    ***ptr3 = 30;
+    
+    cout << j << endl;
+}
+
 int main() {
-    foo();
+    test3();
     return 0;
 }
