@@ -24,7 +24,6 @@ long double func4(long double x1, long double x2, long double x3) {
 int main() {
     // Initialize with long double
     long double x1 = 65.5, x2 = 261.5, x3 = 392.5, x4 = 435.5;
-    double x1_new = 0, x2_new = 0, x3_new = 0, x4_new = 0;
     long double norm = 0, norm_prev = 1e6, error;
     long double tolerance = 1e-3;  // Tighter tolerance
 
@@ -47,16 +46,11 @@ int main() {
             break;
         }
 
-        x1_new = func1(x2, x3, x4);
-        x2_new = func2(x1, x3, x4);
-        x3_new = func3(x1, x2, x4);
-        x4_new = func4(x1, x2, x3);
-        
-        x1 = x1_new;
-        x2 = x2_new;
-        x3 = x3_new;
-        x4 = x4_new;
-
+        // Update values (Gauss-Seidel: use new values immediately)
+        x1 = func1(x2, x3, x4);
+        x2 = func2(x1, x3, x4);  // x1 is already updated
+        x3 = func3(x1, x2, x4);   // x1, x2 updated
+        x4 = func4(x1, x2, x3);   // All others updated
 
         norm_prev = norm;
     }
